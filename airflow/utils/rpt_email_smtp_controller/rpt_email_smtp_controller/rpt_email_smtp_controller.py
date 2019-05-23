@@ -3,11 +3,11 @@ from abc import abstractmethod
 
 from airflow.utils.email import send_email_smtp
 from airflow import configuration
-from airflow.utils.logging import LoggingMixin
+from airflow.utils.log.logging_mixin import LoggingMixin
 
 
 def send_email_smtp_controller(to, subject, html_content, files=None, dryrun=False, cc=None, bcc=None,
-                               mime_subtype='mixed'):
+                               mime_subtype='mixed', mime_charset='us-ascii'):
     log = LoggingMixin().logger
 
     custom_alerts = get_custom_alerters()
@@ -24,7 +24,7 @@ def send_email_smtp_controller(to, subject, html_content, files=None, dryrun=Fal
             return
 
     log.info("Sent an alert email by default %s", "send_email_smtp")
-    send_email_smtp(to, subject, html_content, files, dryrun, cc, bcc, mime_subtype)
+    send_email_smtp(to, subject, html_content, files, dryrun, cc, bcc, mime_subtype, mime_charset)
 
 
 """

@@ -6,7 +6,7 @@ def readme():
 
 setup(
     name='rpt_email_smtp_controller',
-    version='1.8.0',
+    version='1.10.3',
     description='custom alert email subject',
     long_description=readme(),
     url='',
@@ -17,7 +17,7 @@ setup(
     test_suite='nose.collector',
     tests_require=['nose'],
     install_requires=[
-        'airflow==1.8.0'
+        'apache-airflow>=1.10.3'
     ],
     zip_safe=False
 )
